@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    注解了的全部整合到applicationContext.xml里了-->
+
+
+    <!--通过properties标签加载外部properties文件-->
+    <properties resource="jdbc.properties"/>
+
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+    <typeAliases>
+        <typeAlias type="domain.Account" alias="account"/>
+<!--        <package name="domain"/>-->
+    </typeAliases>
+
+
+
+    <!--配置mysql环境-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <!--配置事务类型-->
+            <transactionManager type="JDBC"/>
+            <!--数据源-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+
+    <!--注册映射文件-->
+    <mappers>
+<!--                <mapper resource="mapper/AccountMapper.xml"/>-->
+        <!--注册映射关系-->
+        <!--指定接口所在的包-->
+        <package name="mapper"/>
+    </mappers>
+
+
+</configuration>
