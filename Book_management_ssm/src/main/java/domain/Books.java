@@ -55,4 +55,17 @@ public class Books {
     public void setDetail(String detail) {
         this.detail = detail;
     }
+
+
+    @Override
+    public String toString() {
+        return "Books{" +
+                "id=" + id +
+                ", img='" + img + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", classly='" + classly + '\'' +
+                ", detail='" + detail + '\'' +
+                '}';
+    }
 }

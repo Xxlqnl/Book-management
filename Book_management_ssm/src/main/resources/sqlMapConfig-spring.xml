@@ -15,6 +15,9 @@
     <typeAliases>
 <!--        <typeAlias type="domain.Account" alias="account"/>-->
         <typeAlias type="domain.User" alias="user"/>
+        <typeAlias type="domain.Books" alias="books"/>
+        <typeAlias type="domain.Shopping" alias="shopping"/>
+        <typeAlias type="domain.Admin" alias="admin"/>
 <!--                <package name="domain"/>-->
     </typeAliases>
 

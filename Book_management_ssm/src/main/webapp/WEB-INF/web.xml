@@ -12,6 +12,13 @@
   <display-name>Archetype Created Web Application</display-name>
 
 
+  <!--  全局初始化参数-->
+  <context-param>
+    <param-name>imgPath</param-name>
+    <param-value>classpath:F:\Github_code\Book_Management\Book_management_ssm\src\\main\webapp\img\</param-value>
+  </context-param>
+
+
   <!--  spring监听器-->
   <!--  全局初始化参数-->
   <context-param>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.BooksMapper">
+<!--    <insert id="save" parameterType="account">-->
+<!--        insert into ssm.account values (#{id},#{name},#{money})-->
+<!--    </insert>-->
+<!--    <select id="findAll" resultType="account">-->
+<!--        select * from ssm.account-->
+<!--    </select>-->
+<!--    根据图书类别获取相应的所有图书-->
+    <select id="findAllByClassly" resultType="books">
+        select * from book_ssm.books where classly=#{classly}
+    </select>
+
+
+<!--    根据id查询图书-->
+    <select id="findById" resultType="books">
+        select * from book_ssm.books where id=#{id}
+    </select>
+
+<!--    查询所有图书-->
+    <select id="findAll" resultType="books">
+        select * from book_ssm.books
+    </select>
+
+
+    <!--    根据name查询图书-->
+    <select id="findByName" resultType="books">
+        select * from book_ssm.books where name=#{name}
+    </select>
+
+
+<!--    根据img查询图书-->
+    <select id="findByImg" resultType="books">
+        select * from book_ssm.books where img=#{img}
+    </select>
+</mapper>

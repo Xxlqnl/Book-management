@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.AdminMapper">
+<!--    <insert id="save" parameterType="account">-->
+<!--        insert into ssm.account values (#{id},#{name},#{money})-->
+<!--    </insert>-->
+<!--    <select id="findAll" resultType="account">-->
+<!--        select * from ssm.account-->
+<!--    </select>-->
+
+    <!--    查询admin是否有此用户名和密码相匹配的用户-->
+    <select id="findByUserNameAndPasswd" resultType="admin">
+        select  * from book_ssm.admin where username = #{username} and password=#{password}
+    </select>
+
+
+<!--    通过用户username修改用户密码-->
+    <update id="changePassword" parameterType="admin">
+        update book_ssm.user set password=#{password} where username=#{username}
+    </update>
+
+<!--    查询以下是否已经有该用户名的用户（通过username查询是否已有记录）-->
+    <select id="findUserByUsername" resultType="user">
+        select * from book_ssm.user where username=#{username}
+    </select>
+
+<!--    添加一个用户（通过username和password添加）-->
+    <insert id="addUser" parameterType="user">
+        insert into book_ssm.user (username, password) VALUES (#{username},#{password})
+    </insert>
+
+<!--    删除用户，通过username，因为username唯一-->
+    <delete id="deleteUser" parameterType="user">
+        delete  from book_ssm.user where username=#{username}
+    </delete>
+
+<!--    上传图书-->
+    <insert id="upBook" parameterType="books">
+        insert into book_ssm.books (img,name, price, classly, detail) VALUES (#{img},#{name},#{price},#{classly},#{detail})
+    </insert>
+
+<!--    根据书名删除该书-->
+    <delete id="deleteBook" parameterType="books">
+        delete from book_ssm.books where name=#{name}
+    </delete>
+
+<!--       根据所选类别(name)修改图书信息-->
+    <update id="modifyNameByImg" parameterType="books">
+        update book_ssm.books set name = #{content} where img=#{img}
+    </update>
+    <!--       根据所选类别(price)修改图书信息-->
+    <update id="modifyPriceByImg" parameterType="books">
+        update book_ssm.books set price = #{content} where img=#{img}
+    </update>
+
+    <!--       根据所选类别(detail)修改图书信息-->
+    <update id="modifyDetailByImg" parameterType="books">
+        update book_ssm.books set detail = #{content} where img=#{img}
+    </update>
+
+</mapper>

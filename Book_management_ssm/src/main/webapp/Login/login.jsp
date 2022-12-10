@@ -83,7 +83,7 @@
 <body>
     <div class="container">
         <h2>账号登录</h2>
-        <form action="${pageContext.request.contextPath}/user/login" method="post">
+        <form action="${pageContext.request.contextPath}/user/loginCheck" method="post">
             <div class="item">
                 <input type="text" name="username" placeholder="账号">
             </div>
@@ -91,15 +91,14 @@
                 <input type="password" name="password" placeholder="密码（6-11位）">
             </div>
             <div class="button">
-                <<input type="submit" value="提交">
-<%--                <button><input class="submit" type="submit" value="登录" style="color: white"></button>--%>
+                <button><input class="submit" type="submit" value="登录" style="color: white"></button>
             </div>
-            <p style="color: red;margin-left: 48px">${user}</p>
+            <p style="color: red;margin-left: 48px">${msg}</p>
             <div class="login2">
-                <a href="login2.jsp">注册</a>
+                <a href="${pageContext.request.contextPath}/user/registered">注册</a>
             </div>
             <div class="adlogin">
-                <a href="adlogin.jsp">后台管理员登录</a>
+                <a href="${pageContext.request.contextPath}/admin/login">后台管理员登录</a>
             </div>
         </form>
     </div>

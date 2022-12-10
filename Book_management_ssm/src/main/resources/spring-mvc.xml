@@ -27,17 +27,31 @@
 
 
 
-<!--    &lt;!&ndash;配置拦截器&ndash;&gt;-->
-<!--    &lt;!&ndash;    先执行上面的拦截器，再执行下面的拦截器&ndash;&gt;-->
-<!--    <mvc:interceptors>-->
-<!--        <mvc:interceptor>-->
-<!--            &lt;!&ndash;            对哪些资源执行拦截操作&ndash;&gt;-->
-<!--            <mvc:mapping path="/**"/>-->
-<!--&lt;!&ndash;            对哪些资源不进行拦截操作&ndash;&gt;-->
-<!--            <mvc:exclude-mapping path="/Login/**"/>-->
-<!--            <bean class="interceptor.LoginInterceptor"/>-->
-<!--        </mvc:interceptor>-->
-<!--    </mvc:interceptors>-->
+    <!--配置拦截器-->
+    <!--    先执行上面的拦截器，再执行下面的拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--            对哪些资源执行拦截操作-->
+            <mvc:mapping path="/**"/>
+<!--            对哪些资源不进行拦截操作-->
+            <mvc:exclude-mapping path="/user/registered"/>
+            <mvc:exclude-mapping path="/user/login"/>
+            <mvc:exclude-mapping path="/user/loginCheck"/>
+            <mvc:exclude-mapping path="/admin/login"/>
+            <mvc:exclude-mapping path="/admin/userRegistered"/>
+            <mvc:exclude-mapping path="/admin/loginCheck"/>
+            <bean class="interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 
+    <!--    配置文件上传的解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--        上传文件的编码类型-->
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!--        上传文件总大小-->
+        <property name="maxUploadSize" value="500000"/>
+        <!--        上传单个文件的大小-->
+        <property name="maxUploadSizePerFile" value="500000"/>
+    </bean>
 </beans>

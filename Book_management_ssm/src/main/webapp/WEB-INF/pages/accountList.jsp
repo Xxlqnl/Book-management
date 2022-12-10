@@ -19,11 +19,18 @@
         <th>账户名称</th>
         <th>账户金额</th>
     </tr>
-    <c:forEach items="${accountList}" var="account">
+<%--    <c:forEach items="${accountList}" var="account">--%>
+<%--        <tr>--%>
+<%--            <td>${account.id}</td>--%>
+<%--            <td>${account.name}</td>--%>
+<%--            <td>${account.money}</td>--%>
+<%--        </tr>--%>
+<%--    </c:forEach>--%>
+    <c:forEach items="${booksList}" var="account">
         <tr>
             <td>${account.id}</td>
             <td>${account.name}</td>
-            <td>${account.money}</td>
+            <td>${account.price}</td>
         </tr>
     </c:forEach>
 

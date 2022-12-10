@@ -9,7 +9,14 @@
 <!--    <select id="findAll" resultType="account">-->
 <!--        select * from ssm.account-->
 <!--    </select>-->
+<!--    查询user是否有此用户名和密码相匹配的用户-->
     <select id="findByUserNameAndPasswd" resultType="user">
-        select  * from book_ssm.user where username = #{username} and password = #{password}
+        select  * from book_ssm.user where username = #{username} and password=#{password}
+    </select>
+
+
+<!--    查询所有用户-->
+    <select id="findAll" resultType="user">
+        select * from book_ssm.user
     </select>
 </mapper>

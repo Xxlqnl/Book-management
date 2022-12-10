@@ -82,7 +82,7 @@
 <body>
     <div class="container">
         <h2>欢迎登录</h2>
-        <form action="adLoginServlet" method="post">
+        <form action="${pageContext.request.contextPath}/admin/loginCheck" method="post">
             <div class="item">
 
                 <input type="text" name="username" placeholder="账号" >
@@ -90,7 +90,7 @@
             <div class="item">
                 <input type="password" name="password" placeholder="密码">
             </div>
-            <p style="color: red;margin-left: 48px">${admin}</p>
+            <p style="color: red;margin-left: 48px">${msg}</p>
             <div class="button">
                 <button><input class="submit" type="submit" value="登录" style="color: white"></button>
             </div>

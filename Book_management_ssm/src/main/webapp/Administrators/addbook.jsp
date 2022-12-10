@@ -14,17 +14,17 @@
     
     <div class="left">
         <ul>
-            <li><a  href="adindexServlet">图书管理</a></li>
-            <li class="main"><a  class="main">图书上架</a></li>
-            <li><a href="userServlet">用户管理</a></li>
-            <li><a href="userServlet">退出登录</a></li>
+            <li class="main"><a href="${pageContext.request.contextPath}/admin/index">图书管理</a></li>
+            <li><a href="${pageContext.request.contextPath}/admin/addBook">图书上架</a></li>
+            <li><a href="${pageContext.request.contextPath}/admin/userManagement">用户管理</a></li>
+            <li><a href="${pageContext.request.contextPath}/user/login">退出登录</a></li>
         </ul>
     </div>
     <div class="table">
         <h1 style="display:inline-block">图书信息</h1>
         <p style="display: inline-block;color: red">${upbook}</p>
         <table border="1" cellspacing="0">
-            <form action="addBookServlet" method="post" enctype="multipart/form-data">
+            <form action="${pageContext.request.contextPath}/admin/upBook" method="post" enctype="multipart/form-data">
                 <tr>
                     <td>书名</td>
                     <td class="value">
@@ -68,6 +68,7 @@
                 </tr>
             </form>
         </table>
+        ${msg}
     </div>
 </body>
 </html>

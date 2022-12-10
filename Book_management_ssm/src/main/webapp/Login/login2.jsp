@@ -83,14 +83,14 @@
 <body>
 <div class="container">
     <h2>注册</h2>
-    <form action="login2Servlet" method="post">
+    <form action="${pageContext.request.contextPath}/admin/userRegistered" method="post">
         <div class="item">
             <input type="text" name="username" placeholder="请输入您的手机号">
         </div>
         <div class="item">
             <input type="password" name="password" placeholder="密码">
         </div>
-        <p style="color: red;margin-left: 48px">${user2}</p>
+        <p style="color: red;margin-left: 48px">${msg}</p>
         <div class="button">
             <button><input type="submit" value="注册" style="color: white"></button>
         </div>
@@ -104,8 +104,9 @@
                     </span>
             </label>
         </div>
+        <p>${msg}</p>
         <div class="login2">
-            <a href="login.jsp">登录</a>
+            <a href="${pageContext.request.contextPath}/user/login">登录</a>
         </div>
     </form>
 </div>

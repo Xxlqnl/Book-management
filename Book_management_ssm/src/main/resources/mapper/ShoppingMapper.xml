@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ShoppingMapper">
+<!--    <insert id="save" parameterType="account">-->
+<!--        insert into ssm.account values (#{id},#{name},#{money})-->
+<!--    </insert>-->
+<!--    <select id="findAll" resultType="account">-->
+<!--        select * from ssm.account-->
+<!--    </select>-->
+<!--    根据用户名以及书名，查询一下购物车里是否已有相应记录-->
+    <select id="findShoppingByUsernameAndName" resultType="shopping">
+        select * from book_ssm.shopping where username=#{username} and name=#{name}
+    </select>
+<!--    根据书的id将订单数量存入数据库，库中没有相应的数据-->
+    <insert id="addByBookId" parameterType="shopping">
+        insert into book_ssm.shopping (img, username, name, number, price) values (#{img},#{username},#{name},#{number},#{price})
+    </insert>
+    <!--    根据书的id将订单数量存入数据库，库中有相应的数据-->
+    <update id="updateByBookId" parameterType="shopping">
+        update book_ssm.shopping set number=#{number} where username=#{username} and name=#{name}
+    </update>
+
+<!--    根据username去相应的购物车：获取user对应的所有订单-->
+    <select id="showByUsername" resultType="shopping">
+        select * from book_ssm.shopping where username = #{username}
+    </select>
+
+
+<!--    根据书的id修改购物车内书的数量-->
+    <delete id="deleteByName" parameterType="shopping">
+        delete from book_ssm.shopping where username=#{username} and name=#{name}
+    </delete>
+</mapper>

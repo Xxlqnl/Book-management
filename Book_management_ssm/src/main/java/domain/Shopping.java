@@ -56,4 +56,16 @@ Shopping {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Shopping{" +
+                "id=" + id +
+                ", img='" + img + '\'' +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", number=" + number +
+                ", price=" + price +
+                '}';
+    }
 }
